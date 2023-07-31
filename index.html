@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch</title>
+    <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            position: relative;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .box {
+            background: white;
+            border: 2px solid white;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            background-image: url("https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transition: all .2s;
+        }
+
+        #box {
+            user-select: all;
+            z-index: 1;
+        }
+
+        .container {
+            border: 3px solid red;
+            width: fit-content;
+            height: fit-content;
+        }
+
+        .box.two {
+            transition-delay: 3ms !important;
+        }
+
+        .box.three {
+            transition-delay: 6ms !important;
+        }
+
+        .box.four {
+            transition-delay: 9ms !important;
+        }
+
+        .box.five {
+            transition-delay: 11ms !important;
+        }
+
+        .box.six {
+            transition-delay: 14ms !important;
+        }
+
+        .box.seven {
+            transition-delay: 17ms !important;
+        }
+
+        .box.eight {
+            transition-delay: 20ms !important;
+        }
+
+        .box.nine {
+            transition-delay: 23ms !important;
+        }
+
+        .box.ten {
+            transition-delay: 26ms !important;
+        }
+
+        .box.eleven {
+            transition-delay: 29ms !important;
+        }
+
+        .box.twelve {
+            transition-delay: 32ms !important;
+        }
+
+        .box.thirteen {
+            transition-delay: 35ms !important;
+        }
+
+        .box.fourteen {
+            transition-delay: 38ms !important;
+        }
+
+        .box.fifteen {
+            transition-delay: 41ms !important;
+        }
+
+        .box.sixteen {
+            transition-delay: 44ms !important;
+        }
+
+        .box.seventeen {
+            transition-delay: 47ms !important;
+        }
+
+        .box.eighteen {
+            transition-delay: 50ms !important;
+        }
+
+        .box.nineteen {
+            transition-delay: 53ms !important;
+        }
+
+        .box.twenty {
+            transition-delay: 56ms !important;
+        }
+
+        .notMain {
+            border: none;
+        }
+
+        .menu {
+            background: white;
+            width: 25%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+            border-radius: 20px;
+            display: none;
+            position: relative;
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tip {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            font-size: 12px;
+        }
+
+        body>button {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            background: transparent;
+            border: none;
+            opacity: .5;
+            z-index: 20;
+        }
+
+        body>button:active {
+            transform: scale(.9);
+        }
+
+        body>button:hover {
+            opacity: 1;
+        }
+
+        body>button>img {
+            background: white;
+            border-radius: 5px;
+        }
+        .counter{
+            top: 7px;
+            right: 7px;
+            font-size: 12px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="openMenu">
+        <img src="escape.png" alt="" width="32px">
+    </button>
+    <div class="menu" id="menu">
+        <h1>MENU</h1>
+        <div class="tip">
+            <p>10 = langsam | 1 = schnell</p>
+        </div>
+        <div class="counter">
+            <p id="counter"></p>
+        </div>
+        <div class="flex-col">
+            <div>
+                <p><b>Speed: </b></p>
+                <input type="range" name="speedRange" id="speedRange" min="1" max="10" value="6">
+            </div>
+            <div>
+                <p><b>Langsamer Modus: </b></p>
+                <input type="checkbox" name="slow" id="slow">
+            </div>
+        </div>
+        <div class="flex-col">
+            <p><b>Momentaner Speed: </b></p>
+            <h2 id="curSpeed"></h2>
+        </div>
+    </div>
+    <div class="box" id="box"></div>
+    <div class="box two notMain"><br></div>
+    <div class="box three notMain"><br></div>
+    <div class="box four notMain"><br></div>
+    <div class="box five notMain"><br></div>
+    <div class="box six notMain"><br></div>
+    <div class="box seven notMain"><br></div>
+    <div class="box eight notMain"><br></div>
+    <div class="box nine notMain"><br></div>
+    <div class="box ten notMain"><br></div>
+    <div class="box eleven notMain"><br></div>
+    <div class="box twelve notMain"><br></div>
+    <div class="box thirteen notMain"><br></div>
+    <div class="box fourteen notMain"><br></div>
+    <div class="box fifteen notMain"><br></div>
+    <div class="box sixteen notMain"><br></div>
+    <div class="box seventeen notMain"><br></div>
+    <div class="box eighteen notMain"><br></div>
+    <div class="box nineteen notMain"><br></div>
+    <div class="box twenty notMain"><br></div>
+</body>
+
+</html>
