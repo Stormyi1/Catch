@@ -29,7 +29,7 @@
 
         .box {
             background: white;
-            border: 2px solid white;
+            border: 1px solid rgb(255, 255, 255);
             width: 100px;
             height: 100px;
             display: flex;
@@ -138,8 +138,8 @@
 
         .menu {
             background: white;
-            width: 25%;
-            height: 25%;
+            width: 500px;
+            height: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -204,7 +204,7 @@
             <p>10 = langsam | 1 = schnell</p>
         </div>
         <div class="counter">
-            <p id="counter"></p>
+            <p id="counter">Counter: 0</p>
         </div>
         <div class="flex-col">
             <div>
@@ -219,6 +219,10 @@
         <div class="flex-col">
             <p><b>Momentaner Speed: </b></p>
             <h2 id="curSpeed"></h2>
+        </div>
+        <div>
+            <p><b>Ändere Bild</b></p>
+            <input type="text" name="imgInp" id="imgInp">
         </div>
     </div>
     <div class="box" id="box"></div>

@@ -5,19 +5,20 @@ const speedRange = document.getElementById("speedRange");
 const curSpeedH1 = document.getElementById("curSpeed");
 const slowInput = document.getElementById("slow");
 const openMenuBtn = document.getElementById("openMenu");
-const counter = document.getElementById("counter")
+const counter = document.getElementById("counter");
+const imgInp = document.getElementById("imgInp");
 
 let size = 100;
 let curSpeed = 0.5;
 curSpeedH1.innerText = curSpeed * 10;
-let count = 0
+let count = 0;
 
 mainBox.addEventListener("mouseover", () => {
-    if(menu.style.display == "flex"){
-        menu.style.display = "none"
-    }
-    count++
-    counter.innerText = "Counter: " + count
+  if (menu.style.display == "flex") {
+    menu.style.display = "none";
+  }
+  count++;
+  counter.innerText = "Counter: " + count;
   console.clear();
   let randSize = getRandomSize();
   size = randSize;
@@ -81,9 +82,8 @@ function changeSpeed() {
   console.log(curSpeed);
 }
 
-
 speedRange.addEventListener("input", () => {
-  slowInput.checked = false
+  slowInput.checked = false;
   changeSpeed();
 });
 
@@ -99,12 +99,26 @@ mainBox.addEventListener("click", () => {
   } else if (curSpeed >= 0.3 && curSpeed < 0.5) {
     alert("Supertoll\nVersuche: " + count);
   } else if (curSpeed <= 0.2 && curSpeed > 0) {
-    alert("Das is eigentlich nicht möglich durch Frames und so (glaub ich)\nVersuche: " + count);
+    alert(
+      "Das is eigentlich nicht möglich durch Frames und so (glaub ich)\nVersuche: " +
+        count
+    );
   } else {
     alert("Loser\nVersuche: " + count);
   }
-  count = 0
-  counter.innerText = "Counter: 0"
+  count = 0;
+  counter.innerText = "Counter: 0";
+});
+
+
+imgInp.addEventListener("change", () => {
+  for (let i = 0; i < boxes.length; i++) {
+    try{
+      boxes[i].style.backgroundImage = 'url("'+imgInp.value+'")'
+    }catch{
+      boxes[i].style.backgroundImage = 'url("https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1")'
+    }
+  }
 });
 
 function getRandomSize() {
