@@ -13,13 +13,16 @@ let curSpeed = 0.5;
 curSpeedH1.innerText = curSpeed * 10;
 let count = 0;
 
-for (let i = 0; i < boxes.length; i++) {
-  if (localStorage.getItem("image") != null) {
-    boxes[i].style.backgroundImage = localStorage.getItem("image");
-  }else{
-    boxes[i].style.backgroundImage = "url('https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1)'"
+window.onload(() => {
+  for (let i = 0; i < boxes.length; i++) {
+    if (localStorage.getItem("image") != null) {
+      boxes[i].style.backgroundImage = localStorage.getItem("image");
+    }else{
+      boxes[i].style.backgroundImage = "url('https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1)'"
+    }
   }
-}
+})
+
 
 document.getElementById("boxContainer").addEventListener("click", () => {
   if(menu.style.display == "flex"){
