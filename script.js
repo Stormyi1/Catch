@@ -13,6 +13,20 @@ let curSpeed = 0.5;
 curSpeedH1.innerText = curSpeed * 10;
 let count = 0;
 
+for (let i = 0; i < boxes.length; i++) {
+  if (localStorage.getItem("image")) {
+    boxes[i].style.backgroundImage = localStorage.getItem("image");
+  }else{
+    boxes[i].style.backgroundImage = "https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1"
+  }
+}
+
+document.getElementById("boxContainer").addEventListener("click", () => {
+  if(menu.style.display == "flex"){
+    menu.style.display = "none"
+  }
+})
+
 mainBox.addEventListener("mouseover", () => {
   if (menu.style.display == "flex") {
     menu.style.display = "none";
@@ -110,13 +124,14 @@ mainBox.addEventListener("click", () => {
   counter.innerText = "Counter: 0";
 });
 
-
 imgInp.addEventListener("change", () => {
   for (let i = 0; i < boxes.length; i++) {
-    try{
-      boxes[i].style.backgroundImage = 'url("'+imgInp.value+'")'
-    }catch{
-      boxes[i].style.backgroundImage = 'url("https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1")'
+    try {
+      boxes[i].style.backgroundImage = 'url("' + imgInp.value + '")';
+      localStorage.setItem("image", 'url("' + imgInp.value + '")');
+    } catch {
+      boxes[i].style.backgroundImage =
+        'url("https://tse4.mm.bing.net/th/id/OIP.LEpiHvLvT0d7NLn_rC_XNwAAAA?pid=ImgDet&rs=1")';
     }
   }
 });
